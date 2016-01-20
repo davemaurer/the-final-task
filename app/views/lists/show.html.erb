@@ -7,16 +7,19 @@
   <div class="row col-md-6">
     <div class="form-group">
       <h3>Create A New Task</h3>
-      <%= form_for @task, url: new_list_task_path(@list) do |f| %>
+      <%= form_for @task, url: list_tasks_path(@list), method: :create do |f| %>
         <%= f.label :title %>
         <%= f.text_field :title, placeholder: "Title" %>
         <%= f.label :notes %>
         <%= f.text_field :notes, placeholder: "Notes" %>
-        <%= f.label :start_date %>
-        <%= f.datetime_select :start_date, placeholder: "Start Date" %>
-        <%= f.label :due_date %>
-        <%= f.datetime_select :due_date, placeholder: "Due Date" %>
-
+        <div>
+        <%= f.label "Start Date(Optional)" %>
+        <%= f.datetime_select :start_date, placeholder: "Start Date (Optional)" %>
+        </div>
+        <div>
+        <%= f.label "Due Date(Optional" %>
+        <%= f.datetime_select :due_date, placeholder: "Due Date (Optional)" %>
+        </div>
         <%= f.submit "Create Task", class: "btn btn-sm btn-success" %>
       <% end %>
     </div>

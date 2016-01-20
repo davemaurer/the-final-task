@@ -13,10 +13,10 @@ class TasksController < ApplicationController
     task = list.tasks.new(task_params)
     if task.save
       flash[:notice] = "Task #{task.title} created"
-      redirect_to lists_path
+      redirect_to list_path(list)
     else
       flash[:notice] = "Please try again"
-      redirect_to lists_path
+      redirect_to list_path(list)
     end
   end
 
@@ -29,10 +29,10 @@ class TasksController < ApplicationController
     task = Task.find(params[:id])
     if task.update(task_params)
       flash[:notice] = "Task Updated Successfully"
-      redirect_to lists_path
+      redirect_to list_path(list)
     else
       flash[:notice] = "Please try again"
-      redirect_to lists_path
+      redirect_to list_path(list)
     end
   end
 

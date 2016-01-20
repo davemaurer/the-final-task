@@ -18,8 +18,8 @@ class ListsController < ApplicationController
       flash[:notice] = "List created!"
       redirect_to lists_path
     else
-      flash.now[:notice] = "Please try again"
-      render :new
+      flash[:notice] = "Please try again"
+      redirect_to lists_path
     end
   end
 
