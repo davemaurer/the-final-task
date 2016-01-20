@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h2>You are viewing tasks for <%= @list.title %>, as <%= current_user.email %>, <%= current_user.email %> | <%= link_to "Logout", logout_path %></h2>
+      <h2>You are viewing tasks for <%= @list.title %>, as <%= current_user.email %> | <%= link_to "Back to Lists", lists_path %> | <%= link_to "Logout", logout_path %></h2>
     </div>
   </div>
   <div class="row col-md-6">
     <div class="form-group">
       <h3>Create A New Task</h3>
-      <%= form_for @task, url: new_list_task_path do |f| %>
+      <%= form_for @task, url: new_list_task_path(@list) do |f| %>
         <%= f.label :title %>
         <%= f.text_field :title, placeholder: "Title" %>
         <%= f.label :notes %>

@@ -10,11 +10,11 @@ Edit This Task
   </div>
   <div class="form-group">
     <%= f.label :start_date, "Start Date" %>
-    <%= f.password_field :start_date, placeholder: "Start Date" %>
+    <%= f.datetime_select :start_date, placeholder: "Start Date" %>
   </div>
   <div class="form-group">
     <%= f.label :due_date, "Due Date" %>
-    <%= f.password_field :due_date, placeholder: "Due Date" %>
+    <%= f.datetime_select :due_date, placeholder: "Due Date" %>
   </div>
   <%= f.submit "Submit", class: "btn btn-sm btn-success" %>
 <% end %>

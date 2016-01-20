@@ -1,11 +1,11 @@
 class TasksController < ApplicationController
-  attr_reader :list, :tag
+  attr_reader :list
 
   def index
-    @tasks = current_user.tasks
   end
 
   def new
+    @list = List.find(params[:id])
     @task = Task.new
   end
 
@@ -21,11 +21,19 @@ class TasksController < ApplicationController
   end
 
   def edit
-
+    @list = List.find(params[:list_id])
+    @task = Task.find(params[:id])
   end
 
   def update
-
+    task = Task.find(params[:id])
+    if task.update(task_params)
+      flash[:notice] = "Task Updated Successfully"
+      redirect_to lists_path
+    else
+      flash[:notice] = "Please try again"
+      redirect_to lists_path
+    end
   end
 
   private
