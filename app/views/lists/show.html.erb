@@ -44,7 +44,8 @@
       <ul id="inner-tasks">
         <% @list.tasks.each do |task| %>
           <div class="task all <%= task.complete ? 'complete' : 'incomplete' %>" data-id=<%= task.id %>>
-            <h4 id="task-title">Title: <%= task.title %></h4>
+            <h3 id="task-title">Title: <%= task.title %></h3>
+            <h4 id="task-title">Notes: <%= task.notes %></h4>
             <h4 id="task-status"><%= task.status %></h4>
             <button type="button" class="mark-as btn-sm btn-info">Mark
               as <%= task.complete ? 'complete' : 'incomplete' %></button>

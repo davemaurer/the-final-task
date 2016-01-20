@@ -33,7 +33,7 @@ class ListsController < ApplicationController
       flash[:notice] = "List Updated Successfully"
       redirect_to lists_path
     else
-      flash.now[:notice] = "Please try again"
+      flash[:notice] = "Please try again"
       render :edit
     end
   end
