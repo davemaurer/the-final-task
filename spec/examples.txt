@@ -1,13 +1,16 @@
 example_id                                            | status  | run_time        |
 ----------------------------------------------------- | ------- | --------------- |
-./spec/features/users_can_log_in_and_out_spec.rb[1:1] | passed  | 0.00773 seconds |
-./spec/features/users_can_log_in_and_out_spec.rb[1:2] | passed  | 0.06577 seconds |
-./spec/features/users_can_log_in_and_out_spec.rb[1:3] | passed  | 0.57575 seconds |
-./spec/features/users_can_log_in_and_out_spec.rb[1:4] | passed  | 0.03458 seconds |
-./spec/features/users_can_log_in_and_out_spec.rb[1:5] | passed  | 0.03868 seconds |
-./spec/helpers/home_helper_spec.rb[1:1]               | pending | 0.00002 seconds |
+./spec/features/users_can_log_in_and_out_spec.rb[1:1] | passed  | 0.00917 seconds |
+./spec/features/users_can_log_in_and_out_spec.rb[1:2] | passed  | 0.06231 seconds |
+./spec/features/users_can_log_in_and_out_spec.rb[1:3] | passed  | 0.10267 seconds |
+./spec/features/users_can_log_in_and_out_spec.rb[1:4] | passed  | 0.04749 seconds |
+./spec/features/users_can_log_in_and_out_spec.rb[1:5] | passed  | 0.05269 seconds |
+./spec/features/users_can_log_in_and_out_spec.rb[1:6] | passed  | 0.54183 seconds |
+./spec/features/users_can_log_in_and_out_spec.rb[1:7] | passed  | 0.07004 seconds |
+./spec/features/users_can_log_in_and_out_spec.rb[1:8] | passed  | 0.0338 seconds  |
+./spec/helpers/home_helper_spec.rb[1:1]               | pending | 0.00001 seconds |
 ./spec/helpers/sessions_helper_spec.rb[1:1]           | pending | 0.00002 seconds |
-./spec/helpers/tasks_helper_spec.rb[1:1]              | pending | 0.00001 seconds |
-./spec/helpers/users_helper_spec.rb[1:1]              | pending | 0.00001 seconds |
-./spec/models/task_spec.rb[1:1]                       | pending | 0.00001 seconds |
-./spec/models/user_spec.rb[1:1]                       | pending | 0.00003 seconds |
+./spec/helpers/tasks_helper_spec.rb[1:1]              | pending | 0.00002 seconds |
+./spec/helpers/users_helper_spec.rb[1:1]              | pending | 0.00003 seconds |
+./spec/models/task_spec.rb[1:1]                       | pending | 0.00005 seconds |
+./spec/models/user_spec.rb[1:1]                       | pending | 0.00002 seconds |

@@ -85,4 +85,43 @@ RSpec.feature "User login/logout" do
     expect(User.count).to eq(0)
     expect(page).to have_content('Something went wrong. Please try again.')
   end
+
+  scenario "registered user can log in" do
+    User.create!(email: 'newuser@newuser.com', password: 'password')
+
+    visit root_path
+
+    click_link('Log In')
+
+    fill_in 'Email', with: 'newuser@newuser.com'
+    fill_in 'Password', with: 'password'
+    click_on('Submit')
+
+    expect(page).to have_content('Login Successful. Welcome Back.')
+    expect(current_path).to eq(tasks_path)
+  end
+
+  scenario "registered user can log out" do
+    User.create!(email: 'newuser@newuser.com', password: 'password')
+    log_in_user
+
+    expect(current_path).to eq(tasks_path)
+    click_on('Logout')
+
+    expect(current_path).to eq(root_path)
+    expect(page).to have_content('Thanks for Tasking...You are now logged out.')
+  end
+
+  scenario "unregistered user can not log in" do
+    visit root_path
+
+    click_link('Log In')
+
+    fill_in 'Email', with: 'nicetry@try.com'
+    fill_in 'Password', with: 'password'
+    click_on('Submit')
+
+    expect(current_path).to eq(login_path)
+    expect(page).to have_content('Invalid login. Please try again.')
+  end
 end
