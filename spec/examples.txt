@@ -1,0 +1,4 @@
+example_id                                            | status  | run_time        |
+----------------------------------------------------- | ------- | --------------- |
+./spec/features/users_can_log_in_and_out_spec.rb[1:1] | failed  | 0.02925 seconds |
+./spec/helpers/home_helper_spec.rb[1:1]               | pending | 0.00006 seconds |
