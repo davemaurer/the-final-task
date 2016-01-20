@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Sign Up Successful."
-      redirect_to root_path
+      redirect_to tasks_path
     else
       flash[:notice] = "Something went wrong. Please try again."
       render :new

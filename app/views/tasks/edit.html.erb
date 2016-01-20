@@ -1,0 +1,20 @@
+Edit This Task
+<%= form_for @task do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, placeholder: "Title" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :notes %>
+    <%= f.text_area :notes, placeholder: "Notes" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :start_date, "Start Date" %>
+    <%= f.password_field :start_date, placeholder: "Start Date" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :due_date, "Due Date" %>
+    <%= f.password_field :due_date, placeholder: "Due Date" %>
+  </div>
+  <%= f.submit "Submit", class: "btn btn-sm btn-success" %>
+<% end %>

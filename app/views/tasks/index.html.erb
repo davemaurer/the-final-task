@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Hello, <%= current_user.email %> | <%= link_to "Logout", logout_path %></h2>
+    </div>
+  </div>
+  <div class="row col-md-6">
+    <div class="form-group">
+      <h3>Create A New Task</h3>
+      <%= form_for @task do |f| %>
+        <%= f.label :title %>
+        <%= f.text_field :title, placeholder: "Title" %>
+        <%= f.label :notes %>
+        <%= f.text_field :notes, placeholder: "Notes" %>
+        <%= f.label :start_date %>
+        <%= f.datetime_select :notes, placeholder: "Start Date" %>
+        <%= f.label :due_date %>
+        <%= f.datetime_select :notes, placeholder: "Due Date" %>
+
+        <%= f.submit "Create Task", class: "btn btn-sm btn-success" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row col-md-6">
+    <button type="button" class="btn-sm btn-warning" id='filter-by-name'>Filter By Name</button>
+    <button type="button" class="btn-sm btn-warning" id='filter-by-start-date'>Filter By Start Date</button>
+    <button type="button" class="btn-sm btn-warning" id='filter-by-due-date'>Filter By Due Date</button>
+    <button type="button" class="btn-sm btn-warning" id='filter-by-complete'>Filter Complete Only</button>
+    <button type="button" class="btn-sm btn-warning" id='filter-by-incomplete'>Filter Incomplete Only</button>
+    <button type="button" class="btn-sm btn-primary" id='sort-by-title'>Sort By Title</button>
+    <button type="button" class="btn-sm btn-primary" id='sort-by-status'>Sort By Status</button>
+    <button type="button" class="btn-sm btn-primary" id='sort-by-due-date'>Sort By Due Date</button>
+  </div>
+</div>
+
+<div class="container" id="tasks-container">
+  <div class="row col-md-12">
+    <h2>Your Tasks</h2>
+
+    <div id="tasks">
+      <ul id="inner-tasks">
+        <% @tasks.each do |task| %>
+          <div class="task all <%= task.complete ? 'complete' : 'incomplete' %>" data-id=<%= task.id %>>
+            <h4 id="task-title">Title: <%= task.title %></h4>
+            <h4 id="task-status"><%= task.status %></h4>
+            <button type="button" class="mark-as btn-sm btn-info">Mark as <%= task.complete ? 'complete' : 'incomplete' %></button>
+            <div class="editing" id="edit<%= task.id %>">
+              <%= button_to "Edit This Task", edit_task_path(task) %>
+            </div>
+          </div>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
