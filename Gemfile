@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.2.2'
 
 gem 'rails', '4.2.4'
 gem 'pg'
@@ -13,7 +14,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'responders'
 gem 'validate_url'
 gem 'rails_12factor', group: :production
-gem 'simplecov', require: false, group: :test
 
 group :development, :test do
   gem 'byebug'
