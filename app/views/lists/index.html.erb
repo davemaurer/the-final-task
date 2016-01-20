@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Hello, <%= current_user.email %> | <%= link_to "Logout", logout_path %></h2>
+    </div>
+  </div>
+  <div class="row col-md-6">
+    <div class="form-group">
+      <h3>Create A New List</h3>
+      <%= form_for @list do |f| %>
+        <%= f.label :title %>
+        <%= f.text_field :title, placeholder: "Title" %>
+        <%= f.label :description %>
+        <%= f.text_field :description, placeholder: "Notes" %>
+
+        <%= f.submit "Create List", class: "btn btn-sm btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="lists-container">
+  <div class="row col-md-12">
+    <h2>Your Lists</h2>
+
+    <div id="lists">
+      <ul>
+        <% @lists.each do |list| %>
+            <h4 id="list-title">List Name: <%= list.title %></h4>
+              <%= button_to "Edit This List", edit_list_path(list) %>
+              <%= button_to "See Tasks for This List", list_path(list) %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

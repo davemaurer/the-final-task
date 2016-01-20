@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h2>Hello, <%= current_user.email %> | <%= link_to "Logout", logout_path %></h2>
+      <h2>You are viewing tasks for <%= @list.title %>, as <%= current_user.email %>, <%= current_user.email %> | <%= link_to "Logout", logout_path %></h2>
     </div>
   </div>
   <div class="row col-md-6">
     <div class="form-group">
       <h3>Create A New Task</h3>
-      <%= form_for @task do |f| %>
+      <%= form_for @task, url: new_list_task_path do |f| %>
         <%= f.label :title %>
         <%= f.text_field :title, placeholder: "Title" %>
         <%= f.label :notes %>
@@ -39,13 +39,14 @@
 
     <div id="tasks">
       <ul id="inner-tasks">
-        <% @tasks.each do |task| %>
+        <% @list.tasks.each do |task| %>
           <div class="task all <%= task.complete ? 'complete' : 'incomplete' %>" data-id=<%= task.id %>>
             <h4 id="task-title">Title: <%= task.title %></h4>
             <h4 id="task-status"><%= task.status %></h4>
-            <button type="button" class="mark-as btn-sm btn-info">Mark as <%= task.complete ? 'complete' : 'incomplete' %></button>
+            <button type="button" class="mark-as btn-sm btn-info">Mark
+              as <%= task.complete ? 'complete' : 'incomplete' %></button>
             <div class="editing" id="edit<%= task.id %>">
-              <%= button_to "Edit This Task", edit_task_path(task) %>
+              <%= button_to "Edit This Task", edit_list_task_path(@list, task) %>
             </div>
           </div>
         <% end %>

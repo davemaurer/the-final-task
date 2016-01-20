@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
       flash[:notice] = "Login Successful. Welcome Back."
-      redirect_to tasks_path
+      redirect_to lists_path
     else
       flash[:notice] = "Invalid login. Please try again."
       render :new

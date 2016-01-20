@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :users, only: [:new, :create]
-  resources :tasks, only: [:index, :edit, :update]
+  resources :lists do
+    resources :tasks
+  end
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

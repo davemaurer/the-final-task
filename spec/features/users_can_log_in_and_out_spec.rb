@@ -22,7 +22,7 @@ RSpec.feature "User login/logout" do
 
     expect(User.count).to eq(1)
     expect(User.first.email).to eq('newuser@newuser.com')
-    expect(current_path).to eq(tasks_path)
+    expect(current_path).to eq(lists_path)
     expect(page).to have_content('Hello, newuser@newuser.com')
   end
 
@@ -98,14 +98,14 @@ RSpec.feature "User login/logout" do
     click_on('Submit')
 
     expect(page).to have_content('Login Successful. Welcome Back.')
-    expect(current_path).to eq(tasks_path)
+    expect(current_path).to eq(lists_path)
   end
 
   scenario "registered user can log out" do
     User.create!(email: 'newuser@newuser.com', password: 'password')
     log_in_user
 
-    expect(current_path).to eq(tasks_path)
+    expect(current_path).to eq(lists_path)
     click_on('Logout')
 
     expect(current_path).to eq(root_path)
