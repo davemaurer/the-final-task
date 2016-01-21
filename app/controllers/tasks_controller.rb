@@ -36,6 +36,12 @@ class TasksController < ApplicationController
     end
   end
 
+  def destroy
+    list.tasks.find(params[:id]).destroy
+    flash[:notice] = "Task removed"
+    redirect_to lists_path
+  end
+
   private
   def list
     @list ||= List.find(params[:list_id])

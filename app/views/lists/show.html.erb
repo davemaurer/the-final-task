@@ -48,9 +48,10 @@
             <h4 id="task-title">Notes: <%= task.notes %></h4>
             <h4 id="task-status"><%= task.status %></h4>
             <button type="button" class="mark-as btn-sm btn-info">Mark
-              as <%= task.complete ? 'complete' : 'incomplete' %></button>
+              as <%= task.complete ? 'incomplete' : 'complete' %></button>
             <div class="editing" id="edit<%= task.id %>">
-              <%= button_to "Edit This Task", edit_list_task_path(@list, task) %>
+              <%= button_to "Edit This Task", edit_list_task_path(@list, task), method: :get, class: "btn btn-sm btn-info" %>
+              <%= button_to "Delete This Task", list_task_path(@list, task), method: :delete, class: "btn btn-sm btn-danger" %>
             </div>
           </div>
         <% end %>

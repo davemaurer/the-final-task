@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "User create a task for a list" do
+RSpec.feature "User can edit a list" do
   scenario "successfully" do
     user = User.create!(email: "newuser@newuser.com", password: "password")
     list = List.create!(title: "newlist", description: "awesome", user_id: user.id)
@@ -10,17 +10,19 @@ RSpec.feature "User create a task for a list" do
 
     click_on 'See Tasks for This List'
 
-    expect(page).to have_content 'You are viewing tasks for newlist'
-    expect(page).to have_content 'Create A New Task'
-    expect(list.tasks.count).to eq(0)
-
     fill_in 'Title', with: 'newtask'
     fill_in 'Notes', with: 'notes for the brandnewtask'
 
     click_on 'Create Task'
+    click_on 'Edit This Task'
 
-    expect(page).to have_content 'Task newtask created'
-    expect(page).to have_content 'notes for the brandnewtask'
-    expect(list.tasks.count).to eq(1)
+    fill_in 'Title', with: 'banana'
+    fill_in 'Notes', with: 'gooooood'
+
+    click_on 'Submit'
+
+    expect(page).to have_content 'Task Updated Successfully'
+    expect(page).to have_content 'banana'
+    expect(page).not_to have_content 'newtask'
   end
 end

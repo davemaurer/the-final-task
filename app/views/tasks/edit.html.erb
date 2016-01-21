@@ -1,5 +1,5 @@
 Edit This Task
-<%= form_for @task do |f| %>
+<%= form_for ([@list, @task]) do |f| %>
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, placeholder: "Title" %>

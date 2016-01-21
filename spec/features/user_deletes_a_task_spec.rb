@@ -6,18 +6,14 @@ RSpec.feature "User create a task for a list" do
     list = List.create!(title: "newlist", description: "awesome", user_id: user.id)
     log_in_user
 
-    expect(page).to have_content 'newlist'
-
     click_on 'See Tasks for This List'
-
-    expect(page).to have_content 'You are viewing tasks for newlist'
-    expect(page).to have_content 'Create A New Task'
-    expect(list.tasks.count).to eq(0)
 
     fill_in 'Title', with: 'newtask'
     fill_in 'Notes', with: 'notes for the brandnewtask'
 
     click_on 'Create Task'
+
+    click_on ''
 
     expect(page).to have_content 'Task newtask created'
     expect(page).to have_content 'notes for the brandnewtask'

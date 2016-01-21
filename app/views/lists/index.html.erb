@@ -28,8 +28,9 @@
         <% @lists.each do |list| %>
             <h3 id="list-title">List Name: <%= list.title %></h3>
             <h4 id="list-desciption">Description: <%= list.description %></h4>
-              <%= button_to "Edit This List", edit_list_path(list), method: :get %>
-              <%= button_to "See Tasks for This List", list_path(list), method: :get %>
+              <%= button_to "Edit This List", edit_list_path(list), method: :get, class: "btn btn-sm btn-info"%>
+              <%= button_to "See Tasks for This List", list_path(list), method: :get, class: "btn btn-sm btn-warning"%>
+              <%= button_to "Delete this List", list_path(list), method: :delete, class: "btn btn-danger" %>
         <% end %>
       </ul>
     </div>
