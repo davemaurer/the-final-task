@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "User create a task for a list" do
+RSpec.feature "User creates a task for a list" do
   scenario "successfully" do
     user = User.create!(email: "newuser@newuser.com", password: "password")
     list = List.create!(title: "newlist", description: "awesome", user_id: user.id)

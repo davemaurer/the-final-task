@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "User create a task for a list" do
+RSpec.feature "User deletes a task for a list" do
   scenario "successfully" do
     user = User.create!(email: "newuser@newuser.com", password: "password")
     list = List.create!(title: "newlist", description: "awesome", user_id: user.id)
@@ -13,10 +13,12 @@ RSpec.feature "User create a task for a list" do
 
     click_on 'Create Task'
 
-    click_on ''
-
-    expect(page).to have_content 'Task newtask created'
-    expect(page).to have_content 'notes for the brandnewtask'
     expect(list.tasks.count).to eq(1)
+
+    click_on 'Delete This Task'
+
+    expect(page).to have_content 'Task removed'
+    expect(page).not_to have_content 'newtask'
+    expect(list.tasks.count).to eq(0)
   end
 end
