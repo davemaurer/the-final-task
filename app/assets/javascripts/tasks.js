@@ -3,6 +3,7 @@ $(document).ready(function() {
 });
 
 function listenForMark() {
+  // Use delegate in order to catch anything that is added to the page without a refresh.
   $('.mark-as').on('click', function(event) {
     event.preventDefault();
     var $task = $(event.target).closest('.task');
